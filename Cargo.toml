@@ -12,13 +12,9 @@ readme = "README.md"
 keywords = [
     "commitlint",
     "conventional-commits",
-    "git",
     "git-hooks",
     "commit-message",
-    "linting",
     "cargo-subcommand",
-    "rust-tooling",
-    "code-quality",
 ]
 categories = [
     "development-tools",
