@@ -30,6 +30,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/cargo-commitlint/",
               "budgets": [
                 {
                   "type": "initial",
