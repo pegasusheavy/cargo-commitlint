@@ -9,6 +9,7 @@ use std::process;
 
 #[derive(Parser)]
 #[command(name = "cargo-commitlint")]
+#[command(bin_name = "cargo commitlint")]
 #[command(about = "A Rust-based commit message linter following Conventional Commits specification")]
 #[command(version)]
 struct Cli {
@@ -34,7 +35,12 @@ enum Commands {
 }
 
 fn main() {
-    let cli = Cli::parse();
+    // Filter out "commitlint" argument if passed by cargo
+    let args: Vec<String> = std::env::args()
+        .filter(|arg| arg != "commitlint")
+        .collect();
+
+    let cli = Cli::parse_from(args);
 
     let result = match cli.command {
         Commands::Install => {
