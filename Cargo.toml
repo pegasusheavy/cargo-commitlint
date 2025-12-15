@@ -6,6 +6,36 @@ authors = ["Pegasus Heavy Industries"]
 description = "A Rust-based commit message linter following Conventional Commits specification"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/pegasusheavy/cargo-commitlint"
+homepage = "https://pegasusheavy.github.io/cargo-commitlint"
+documentation = "https://pegasusheavy.github.io/cargo-commitlint"
+readme = "README.md"
+keywords = [
+    "commitlint",
+    "conventional-commits",
+    "git",
+    "git-hooks",
+    "commit-message",
+    "linting",
+    "cargo-subcommand",
+    "rust-tooling",
+    "code-quality",
+]
+categories = [
+    "development-tools",
+    "command-line-utilities",
+]
+exclude = [
+    "/.github",
+    "/.cargo-husky",
+    "/.cursor",
+    "/docs",
+    "/.gitignore",
+    "*.md",
+    "!README.md",
+    "/commitlint.example.toml",
+    "/llms.txt",
+    "/ai.txt",
+]
 
 [[bin]]
 name = "cargo-commitlint"
