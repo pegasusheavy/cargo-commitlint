@@ -247,12 +247,11 @@ This will install only the commit-msg hook for commit message validation.
 
 ## License
 
-Licensed under either of
+Licensed under the MIT License.
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+Copyright (c) 2025 Pegasus Heavy Industries LLC
 
-at your option.
+See [LICENSE](LICENSE) or [LICENSE-MIT](LICENSE-MIT) for details.
 
 ## Contributing
 

@@ -2,9 +2,9 @@
 name = "cargo-commitlint"
 version = "1.0.0"
 edition = "2021"
-authors = ["Pegasus Heavy Industries"]
+authors = ["Pegasus Heavy Industries LLC"]
 description = "A Rust-based commit message linter following Conventional Commits specification"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 repository = "https://github.com/pegasusheavy/cargo-commitlint"
 homepage = "https://pegasusheavy.github.io/cargo-commitlint"
 documentation = "https://pegasusheavy.github.io/cargo-commitlint"
