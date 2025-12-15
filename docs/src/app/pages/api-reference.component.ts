@@ -20,6 +20,7 @@ import { SEOService } from '../services/seo.service';
               <div class="bg-surface-elevated border border-border rounded-lg p-4">
                 <pre class="text-sm"><code>cargo commitlint install</code></pre>
               </div>
+              <p class="text-sm mt-2">Installs a git hook that automatically validates commit messages using <code class="bg-surface-muted px-2 py-1 rounded">cargo commitlint</code>.</p>
             </div>
 
             <div>
@@ -28,6 +29,7 @@ import { SEOService } from '../services/seo.service';
               <div class="bg-surface-elevated border border-border rounded-lg p-4">
                 <pre class="text-sm"><code>cargo commitlint uninstall</code></pre>
               </div>
+              <p class="text-sm mt-2">Removes the commit-msg hook installed by <code class="bg-surface-muted px-2 py-1 rounded">cargo commitlint install</code>.</p>
             </div>
 
             <div>
@@ -41,7 +43,13 @@ Options:
   -c, --config &lt;CONFIG&gt;      Path to configuration file
   -h, --help                 Print help</code></pre>
               </div>
-              <p class="text-sm mt-2">If <code class="bg-surface-muted px-2 py-1 rounded">--message</code> is not provided, the commit message will be read from stdin.</p>
+              <p class="text-sm mt-2">If <code class="bg-surface-muted px-2 py-1 rounded">--message</code> is not provided, the commit message will be read from stdin. This is useful for git hooks.</p>
+              <div class="bg-surface-elevated border border-border rounded-lg p-4 mt-2">
+                <pre class="text-sm"><code># Examples:
+cargo commitlint check --message "feat: add feature"
+echo "fix: bug" | cargo commitlint check
+cargo commitlint check --message "docs: update" --config ./custom.toml</code></pre>
+              </div>
             </div>
           </div>
         </div>

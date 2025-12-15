@@ -29,11 +29,25 @@ else
 fi
 
 # Validate commit message using this project's binary
-echo "📝 Validating commit message with cargo-commitlint..."
-if ! cat "$COMMIT_MSG_FILE" | "$CARGO_COMMITLINT" check; then
-    echo "❌ Commit message validation failed."
-    echo "   Please follow Conventional Commits specification."
-    exit 1
+# Try cargo commitlint first (if installed), then fall back to direct binary
+echo "📝 Validating commit message with cargo commitlint..."
+if command -v cargo >/dev/null 2>&1 && cargo commitlint --version >/dev/null 2>&1; then
+    # Use cargo commitlint subcommand if available
+    if ! cat "$COMMIT_MSG_FILE" | cargo commitlint check; then
+        echo "❌ Commit message validation failed."
+        echo "   Please follow Conventional Commits specification."
+        exit 1
+    fi
+elif [ -n "$CARGO_COMMITLINT" ]; then
+    # Fall back to direct binary
+    if ! cat "$COMMIT_MSG_FILE" | "$CARGO_COMMITLINT" check; then
+        echo "❌ Commit message validation failed."
+        echo "   Please follow Conventional Commits specification."
+        exit 1
+    fi
+else
+    echo "⚠️  cargo-commitlint not found. Skipping validation."
+    exit 0
 fi
 
 echo "✅ Commit message is valid!"

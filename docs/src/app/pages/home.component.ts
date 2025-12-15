@@ -56,8 +56,16 @@ import { SEOService } from '../services/seo.service';
       <div class="mt-12 text-center">
         <h2 class="text-3xl font-bold mb-6 text-foreground">Quick Start</h2>
         <div class="bg-surface-elevated border border-border rounded-lg p-6 text-left">
-          <pre class="text-foreground overflow-x-auto"><code># Install
+          <pre class="text-foreground overflow-x-auto"><code># Install (from crates.io when published)
 cargo install cargo-commitlint
+
+# Or install from source
+git clone https://github.com/pegasusheavy/cargo-commitlint.git
+cd cargo-commitlint
+cargo install --path .
+
+# Use as a cargo subcommand
+cargo commitlint --help
 
 # Install git hook
 cargo commitlint install

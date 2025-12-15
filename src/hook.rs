@@ -120,16 +120,21 @@ impl HookInstaller {
 
         format!(
             r#"#!/bin/sh
-# Git commit-msg hook installed by cargo-commitlint
+# Git commit-msg hook installed by cargo commitlint
 # This hook validates commit messages according to Conventional Commits specification
 
 COMMIT_MSG_FILE="$1"
 
-# Read commit message and pass to cargo-commitlint via stdin
-cat "$COMMIT_MSG_FILE" | {bin_path} check
-
-# Exit with the same code as cargo-commitlint
-exit $?
+# Try to use cargo commitlint subcommand first (if installed)
+if command -v cargo >/dev/null 2>&1 && cargo commitlint --version >/dev/null 2>&1; then
+    # Use cargo commitlint subcommand
+    cat "$COMMIT_MSG_FILE" | cargo commitlint check
+    exit $?
+else
+    # Fall back to direct binary path
+    cat "$COMMIT_MSG_FILE" | {bin_path} check
+    exit $?
+fi
 "#,
             bin_path = path_str
         )

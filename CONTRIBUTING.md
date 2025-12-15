@@ -57,7 +57,7 @@ cargo test
 Available hooks:
 - **pre-commit**: Runs `cargo fmt --check` and `cargo clippy`
 - **pre-push**: Runs `cargo test`
-- **commit-msg**: Validates commit messages using cargo-commitlint
+- **commit-msg**: Validates commit messages using `cargo commitlint`
 
 ## Making Changes
 

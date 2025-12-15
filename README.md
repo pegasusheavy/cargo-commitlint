@@ -30,6 +30,12 @@ cargo install cargo-commitlint
 
 ## Usage
 
+After installation, `cargo-commitlint` is available as a cargo subcommand. Use it with:
+
+```bash
+cargo commitlint <command>
+```
+
 ### Git Hooks with cargo-husky
 
 This project uses `cargo-husky` to manage git hooks. The hooks are automatically installed when you run `cargo test`.
@@ -38,7 +44,7 @@ This project uses `cargo-husky` to manage git hooks. The hooks are automatically
 
 - **pre-commit**: Runs `cargo fmt --check` and `cargo clippy` to ensure code quality
 - **pre-push**: Runs `cargo test` to ensure all tests pass before pushing
-- **commit-msg**: Validates commit messages using `cargo-commitlint` and Conventional Commits
+- **commit-msg**: Validates commit messages using `cargo commitlint` and Conventional Commits
 
 #### Installing Hooks
 
@@ -52,13 +58,13 @@ This will compile the project and install all git hooks configured in `.cargo-hu
 
 #### Manual Git Hook Installation (Alternative)
 
-If you prefer to use `cargo-commitlint`'s built-in hook installer instead of `cargo-husky`:
+If you prefer to use `cargo commitlint`'s built-in hook installer instead of `cargo-husky`:
 
 ```bash
 cargo commitlint install
 ```
 
-This will create a `.git/hooks/commit-msg` hook that validates all commit messages.
+This will create a `.git/hooks/commit-msg` hook that validates all commit messages using `cargo commitlint`.
 
 ### Uninstall Git Hook
 
@@ -219,7 +225,7 @@ This project includes `cargo-husky` configuration with pre-commit, pre-push, and
 
 1. **Pre-commit hook**: Ensures code is formatted (`cargo fmt`) and passes clippy checks
 2. **Pre-push hook**: Runs all tests before allowing pushes
-3. **Commit-msg hook**: Validates commit messages using `cargo-commitlint`
+3. **Commit-msg hook**: Validates commit messages using `cargo commitlint`
 
 To activate the hooks, simply run:
 
@@ -229,9 +235,9 @@ cargo test
 
 The hooks are defined in `.cargo-husky/hooks/` and will be automatically installed.
 
-### Using cargo-commitlint's Built-in Hook Installer
+### Using cargo commitlint's Built-in Hook Installer
 
-Alternatively, you can use `cargo-commitlint`'s built-in installer:
+Alternatively, you can use `cargo commitlint`'s built-in installer:
 
 ```bash
 cargo commitlint install

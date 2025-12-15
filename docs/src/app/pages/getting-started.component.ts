@@ -30,7 +30,7 @@ cargo install --path .</code></pre>
       <div class="bg-surface border border-border rounded-lg p-6 mb-6">
         <h2 class="text-2xl font-semibold mb-4 text-foreground">Install Git Hooks</h2>
         <div class="text-foreground/80">
-          <p class="mb-4">cargo-commitlint integrates seamlessly with cargo-husky for git hook management.</p>
+          <p class="mb-4">After installation, <code class="bg-surface-muted px-2 py-1 rounded">cargo commitlint</code> is available as a cargo subcommand. It integrates seamlessly with cargo-husky for git hook management.</p>
 
           <h3 class="text-xl font-semibold mb-4 text-foreground">Using cargo-husky (Recommended)</h3>
           <p class="mb-4">Add cargo-husky to your Cargo.toml:</p>
@@ -45,10 +45,11 @@ cargo-husky = {{ '{' }} version = "1.5", default-features = false, features = ["
           <p class="mb-4">This will automatically install all git hooks defined in <code class="bg-surface-muted px-2 py-1 rounded">.cargo-husky/hooks/</code></p>
 
           <h3 class="text-xl font-semibold mb-4 mt-6 text-foreground">Using Built-in Installer</h3>
-          <p class="mb-4">Alternatively, use cargo-commitlint's built-in installer:</p>
+          <p class="mb-4">Alternatively, use <code class="bg-surface-muted px-2 py-1 rounded">cargo commitlint</code>'s built-in installer:</p>
           <div class="bg-surface-elevated border border-border rounded-lg p-4">
             <pre class="text-sm overflow-x-auto"><code>cargo commitlint install</code></pre>
           </div>
+          <p class="mb-4 mt-4">This will install a git hook that automatically validates commit messages when you commit.</p>
         </div>
       </div>
 
