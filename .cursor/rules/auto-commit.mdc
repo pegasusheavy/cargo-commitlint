@@ -1,0 +1,41 @@
+# Auto-Commit After Completion
+
+## Rule
+Always commit changes after completing a task or set of changes, unless explicitly told otherwise by the user.
+
+## Guidelines
+- After completing a task, create a git commit with an appropriate commit message
+- Use Conventional Commits format for commit messages (enforced by cargo-commitlint)
+- Commit message should describe what was done, not how it was done
+- Use appropriate commit type: feat, fix, docs, refactor, chore, etc.
+- Include scope when relevant to the change
+- Commit should be atomic - group related changes together
+
+## Commit Message Format
+Follow Conventional Commits specification:
+- `feat(scope): description` - for new features
+- `fix(scope): description` - for bug fixes
+- `docs(scope): description` - for documentation changes
+- `refactor(scope): description` - for code refactoring
+- `chore(scope): description` - for maintenance tasks
+- `test(scope): description` - for test additions/changes
+
+## When to Commit
+- After implementing a feature or fix
+- After making configuration changes
+- After updating dependencies
+- After refactoring code
+- After adding or updating documentation
+- After completing a set of related changes
+
+## When NOT to Commit
+- If the user explicitly asks not to commit
+- If the changes are incomplete or broken
+- If the user wants to review changes first
+- If committing would break the build or tests
+
+## Best Practices
+- Write clear, descriptive commit messages
+- Keep commits focused on a single change or related set of changes
+- Ensure code compiles and tests pass before committing
+- Use `git add` to stage specific files, not `git add .` unless all changes should be committed

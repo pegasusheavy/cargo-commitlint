@@ -1,0 +1,34 @@
+# Git Flow Workflow
+
+## Rule
+This project uses git-flow branching model for version control and release management.
+
+## Branch Structure
+- **main/master**: Production-ready code, always deployable
+- **develop**: Integration branch for features, where development happens
+- **feature/**: Feature branches branched from and merged back to develop
+- **release/**: Release branches for preparing new releases, branched from develop
+- **hotfix/**: Hotfix branches for urgent production fixes, branched from main/master
+- **support/**: Support branches for older versions (if needed)
+
+## Workflow Guidelines
+- Always branch from `develop` when starting new features
+- Feature branches should follow naming: `feature/description-of-feature`
+- Release branches should follow naming: `release/x.y.z` (version number)
+- Hotfix branches should follow naming: `hotfix/description-of-fix`
+- Merge feature branches back to `develop` when complete
+- Create release branches from `develop` when ready to release
+- Merge release branches to both `main` and `develop` when complete
+- Hotfixes branch from `main`, merge back to both `main` and `develop`
+
+## Commit Messages
+- Follow Conventional Commits specification (enforced by cargo-commitlint)
+- Use appropriate types: feat, fix, docs, style, refactor, perf, test, chore, etc.
+- Include scope when relevant: `feat(parser): add new feature`
+
+## Best Practices
+- Keep feature branches focused on a single feature or fix
+- Regularly merge `develop` into feature branches to stay up to date
+- Delete branches after merging
+- Tag releases on `main` branch with version numbers
+- Use pull requests/merge requests for code review before merging

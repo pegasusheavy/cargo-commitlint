@@ -1,0 +1,74 @@
+# ai.txt for cargo-commitlint
+
+# Project Overview
+cargo-commitlint is a Rust-based commit message linter that enforces the Conventional Commits specification. It provides a native Rust alternative to Node.js's commitlint, designed specifically for the Rust ecosystem.
+
+# What is cargo-commitlint?
+A command-line tool and git hook that validates commit messages to ensure they follow the Conventional Commits format. It helps maintain consistent, meaningful commit history across Rust projects.
+
+# Key Capabilities
+1. Validates commit messages against Conventional Commits specification
+2. Configurable validation rules via TOML files
+3. Automatic git hook installation
+4. Integration with cargo-husky
+5. Customizable rules for commit types, scopes, subjects, bodies, and footers
+6. Regex-based parsing for flexible commit message formats
+7. Ignore patterns for skipping validation on specific commits
+
+# Installation Methods
+- From source: Clone repository and run `cargo install --path .`
+- From Crates.io: Run `cargo install cargo-commitlint`
+
+# Common Use Cases
+- Enforcing commit message standards in Rust projects
+- Automating commit message validation via git hooks
+- Maintaining consistent commit history for better changelog generation
+- Integrating with CI/CD pipelines for commit message checks
+
+# Configuration
+Configuration is done via TOML files (commitlint.toml or .commitlint.toml) in the project root. Supports:
+- Type validation (allowed types, case requirements)
+- Scope validation (allowed scopes, case requirements)
+- Subject validation (case, length, formatting)
+- Header validation (min/max length)
+- Body and footer validation (formatting, line length)
+- Custom parser patterns
+- Ignore patterns
+
+# Conventional Commits Format
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+
+Supported types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+
+# Integration Points
+- Git hooks (pre-commit, pre-push, commit-msg)
+- cargo-husky for hook management
+- CI/CD pipelines
+- Rust project workflows
+
+# Documentation
+Comprehensive documentation available at the project's documentation site, covering:
+- Getting started guide
+- Configuration options
+- Examples and use cases
+- API reference
+- Contributing guidelines
+
+# Technical Details
+- Written in Rust
+- Uses regex for commit message parsing
+- TOML for configuration
+- Command-line interface via cargo subcommand
+- Exit codes: 0 for success, 1 for validation failure
+
+# Keywords and Tags
+rust, commitlint, conventional commits, git hooks, cargo, rust tooling, commit message validation, code quality, developer tools, rust development, git workflow, commit standards
+
+# Contact and Support
+Repository: https://github.com/pegasusheavy/cargo-commitlint
+License: MIT OR Apache-2.0
+

@@ -1,0 +1,69 @@
+# Example configuration for cargo-commitlint
+# Copy this file to commitlint.toml or .commitlint.toml in your project root
+
+[rules]
+# Type validation
+[rules.type]
+# Allowed commit types (empty means all types are allowed)
+enum = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "refactor",
+    "revert",
+    "style",
+    "test",
+]
+# Case requirement for type (lowercase, uppercase, camel-case, kebab-case, pascal-case, snake-case)
+case = "lowercase"
+
+# Scope validation
+[rules.scope]
+# Allowed scopes (empty means all scopes are allowed)
+enum = []
+# Case requirement for scope
+case = "lowercase"
+
+# Subject validation
+# Case requirements for subject (sentence-case, lowercase, uppercase, start-case)
+subject_case = ["sentence-case"]
+# Whether subject can be empty
+subject_empty = false
+# Full stop character that should not appear at the end of subject
+subject_full_stop = "."
+
+# Header validation
+header_max_length = 72
+header_min_length = 0
+
+# Body validation
+body_leading_blank = true
+body_max_line_length = 100
+
+# Footer validation
+footer_leading_blank = true
+footer_max_line_length = 100
+
+# Parser configuration
+[parser]
+# Regex pattern for parsing conventional commits
+# Default pattern matches: type(scope): subject
+pattern = "^(?P<type>\\w+)(?:\\((?P<scope>[^)]+)\\))?(?P<breaking>!)?:\\s(?P<subject>.*)$"
+
+# Map regex capture groups to commit fields
+[parser.correspondence]
+type = "type"
+scope = "scope"
+subject = "subject"
+breaking = "breaking"
+
+# Ignore patterns (commits matching these regex patterns will skip validation)
+ignores = [
+    # "Merge.*",
+    # "Revert.*",
+]
+

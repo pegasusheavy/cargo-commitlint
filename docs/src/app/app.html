@@ -1,0 +1,33 @@
+<!-- Navigation -->
+<nav class="bg-surface border-b border-border sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <a [routerLink]="['/']" class="text-xl font-bold text-foreground hover:text-primary-500">
+        cargo-commitlint
+      </a>
+      <div class="flex gap-4">
+        <a [routerLink]="['/getting-started']" class="text-foreground/80 hover:text-foreground">Getting Started</a>
+        <a [routerLink]="['/configuration']" class="text-foreground/80 hover:text-foreground">Configuration</a>
+        <a [routerLink]="['/examples']" class="text-foreground/80 hover:text-foreground">Examples</a>
+        <a [routerLink]="['/conventional-commits']" class="text-foreground/80 hover:text-foreground">Conventional Commits</a>
+        <a [routerLink]="['/api-reference']" class="text-foreground/80 hover:text-foreground">API</a>
+        <a [routerLink]="['/contributing']" class="text-foreground/80 hover:text-foreground">Contributing</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="min-h-screen bg-background">
+  <router-outlet />
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface border-t border-border mt-12">
+  <div class="container mx-auto px-4 py-8">
+    <div class="text-center text-foreground/60 text-sm">
+      <p>cargo-commitlint - A Rust-based commit message linter</p>
+      <p class="mt-2">Licensed under MIT OR Apache-2.0</p>
+    </div>
+  </div>
+</footer>

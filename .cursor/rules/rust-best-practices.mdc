@@ -1,0 +1,83 @@
+# Rust Best Practices
+
+## Rule
+Follow Rust best practices, idioms, and conventions when writing Rust code.
+
+## Code Style
+- Use `rustfmt` for consistent formatting (enforced by pre-commit hook)
+- Run `clippy` and fix all warnings (enforced by pre-commit hook)
+- Prefer `rustfmt` defaults unless project-specific formatting is required
+- Use meaningful variable and function names following Rust naming conventions
+- Prefer snake_case for functions and variables, PascalCase for types
+
+## Error Handling
+- Use `Result<T, E>` for fallible operations, not panics or unwrap() in production code
+- Prefer `?` operator for error propagation
+- Use `anyhow::Result` or `thiserror` for application-level errors
+- Provide meaningful error messages with context
+- Use `Option<T>` for nullable values, not `null` or `None` checks
+- Avoid `unwrap()` and `expect()` in production code; use proper error handling instead
+
+## Memory Management
+- Leverage Rust's ownership system; avoid unnecessary cloning
+- Use references (`&T`) when borrowing is sufficient
+- Prefer `&str` over `String` for function parameters when ownership isn't needed
+- Use `Cow<str>` when you need either owned or borrowed strings
+- Consider using `Arc<T>` or `Rc<T>` only when shared ownership is truly needed
+
+## Type Safety
+- Use strong types instead of primitive types (e.g., `UserId` instead of `u64`)
+- Leverage enums for state machines and discriminated unions
+- Use `#[derive]` attributes (Debug, Clone, PartialEq, etc.) when appropriate
+- Prefer pattern matching over if-else chains
+- Use `match` exhaustively; handle all cases
+
+## Performance
+- Avoid premature optimization; write clear, idiomatic code first
+- Use `Vec` for dynamic arrays, arrays for fixed-size collections
+- Prefer iterators over manual loops when appropriate
+- Use `&[T]` slices instead of `Vec<T>` when possible
+- Consider using `Box<T>` for large types on the stack
+- Profile before optimizing
+
+## Testing
+- Write unit tests using `#[cfg(test)]` modules
+- Use `#[test]` for test functions
+- Prefer `assert_eq!` and `assert!` macros
+- Test error cases, not just happy paths
+- Use integration tests in `tests/` directory for external API testing
+- Consider property-based testing with `proptest` for complex logic
+
+## Documentation
+- Write doc comments (`///`) for public APIs
+- Use `//!` for module-level documentation
+- Include examples in doc comments when helpful
+- Document `unsafe` blocks and explain why they're safe
+- Use `#[allow(...)]` sparingly and document why
+
+## Dependencies
+- Keep dependencies minimal and well-maintained
+- Prefer standard library solutions when available
+- Use `cargo audit` to check for security vulnerabilities
+- Pin dependency versions appropriately in Cargo.toml
+- Consider using workspace dependencies for monorepos
+
+## Unsafe Code
+- Avoid `unsafe` unless absolutely necessary
+- When using `unsafe`, document invariants and safety guarantees
+- Prefer safe abstractions over raw unsafe code
+- Use `unsafe` blocks, not `unsafe fn`, when possible
+
+## Common Patterns
+- Use `match` for exhaustive pattern matching
+- Use `if let` and `while let` for Option/Result handling
+- Prefer `map`, `and_then`, `or_else` for Option/Result chains
+- Use `unwrap_or`, `unwrap_or_else` for default values
+- Use `collect()` to convert iterators to collections
+- Prefer `Vec::with_capacity()` when size is known
+
+## Project-Specific
+- Use `cargo-commitlint` for commit message validation
+- Follow Conventional Commits specification
+- Run `cargo fmt` and `cargo clippy` before committing
+- All tests must pass before pushing (enforced by pre-push hook)

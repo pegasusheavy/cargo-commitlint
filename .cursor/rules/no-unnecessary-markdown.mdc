@@ -1,0 +1,16 @@
+# No Unnecessary Markdown Generation
+
+## Rule
+Do not generate unnecessary markdown files or markdown content unless explicitly requested by the user.
+
+## Guidelines
+- Do not create markdown documentation files (README.md, CHANGELOG.md, etc.) unless explicitly requested
+- Do not generate markdown summaries of tasks or changes unless the user asks for them
+- Do not create markdown comments or documentation blocks unless they serve a specific purpose
+- Focus on code implementation rather than documentation unless documentation is the explicit goal
+- When providing explanations or summaries, use plain text in responses rather than generating markdown files
+
+## Exceptions
+- README.md updates are acceptable when they are part of implementing a feature that requires documentation
+- Code comments and doc comments in source files are always acceptable and encouraged
+- Markdown in code (like Rust doc comments) is acceptable as it's part of the code itself

@@ -1,0 +1,17 @@
+#!/bin/sh
+# Pre-push hook for cargo-commitlint
+# Runs cargo test before allowing pushes
+
+set -e
+
+echo "🧪 Running pre-push tests..."
+
+# Run tests
+if ! cargo test --all-features; then
+    echo "❌ Tests failed. Please fix them before pushing."
+    exit 1
+fi
+
+echo "✅ All tests passed!"
+exit 0
+
